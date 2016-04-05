@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="css/main.css" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-sanitize.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.2.js"></script>
+<script src="js/lib/parseUrl.js"></script>
+<script src="js/main.js"></script>
+</head>
+<body ng-app="urlFetchAndParse">
+
+<div class="main" ng-controller="mainController">
+
+	<div class="inline-block padding-bottom">
+		<input class="input-field left" placeholder="Enter a URL" size=60 type="text" name="url" value="" ng-model="myUrl"/>
+		<button type="button" class="input-button left" ng-click="fetchUrl()">fetch</button>
+	</div>
+
+	<div class="full-panel">
+		<div id="summary" class="left half-panel">
+			<div ng-repeat="obj in summary">
+        			<div class="clear">
+					<div class="left tag-item tag-button" ng-click="highlightTag(obj.key)">{{obj.key}}</div>
+        				<div class="left tag-item tag-count">{{obj.value}}</div>
+        			</div>
+			</div>
+		</div>
+		<div id="source" class="left half-panel" ng-bind-html="source"></div>
+	</div>
+
+</div>
+
+</body>
+</html>
